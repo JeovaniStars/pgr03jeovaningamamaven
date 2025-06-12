@@ -5,6 +5,33 @@
     <artifactId>pgr03jeovaningamamaven</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>org.jboss.weld</groupId>
+            <artifactId>weld-osgi-bundle</artifactId>
+            <version>4.0.0.Beta2</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>ch.exense.step.library</groupId>
+            <artifactId>step-library-kw-http</artifactId>
+            <version>1.0.25</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.grizzly.osgi</groupId>
+            <artifactId>grizzly-httpservice-bundle</artifactId>
+            <version>4.1.0-M1</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <version>10.0.0</version> <!-- ou outra versão, conforme quiser -->
+            <scope>provided</scope> <!-- porque o servidor que vai rodar a aplicação já fornece -->
+        </dependency>
+
+    </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>21</maven.compiler.release>
