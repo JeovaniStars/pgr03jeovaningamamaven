@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package br.com.ifba.curso.view;
+import br.com.ifba.curso.view.CursoSaveView;
+
 /**
  *
  * @author Bruno
@@ -47,6 +49,11 @@ public class CursoListar extends javax.swing.JFrame {
         getContentPane().add(txtPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 190, 50));
 
         btnAdicionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/curso/images/adicionar.png"))); // NOI18N
+        btnAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnAdicionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 160, 50));
 
         btnHomescreen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/curso/images/home.png"))); // NOI18N
@@ -84,6 +91,12 @@ public class CursoListar extends javax.swing.JFrame {
     private void txtPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPesquisarActionPerformed
+
+    private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
+        // TODO add your handling code here:
+        CursoSaveView cursoSaveView = new CursoSaveView();
+        cursoSaveView.setVisible(true);
+    }//GEN-LAST:event_btnAdicionarActionPerformed
 
     /**
      * @param args the command line arguments
