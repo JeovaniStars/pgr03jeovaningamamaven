@@ -1,20 +1,39 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package br.com.ifba;
 
-/**
- *
- * @author Bruno
- */
+import br.com.ifba.curso.entity.Curso;
+import br.com.ifba.curso.view.CursoSaveView;
+
 public class CursoSave {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    private CursoSaveView view;
+
+    public CursoSave() {
+        this.view = new CursoSaveView();
+
+        // Registrar listeners usando os métodos públicos
+        view.addSalvarListener(e -> salvarCurso());
+        view.addCancelarListener(e -> view.fechar());
     }
-    
+
+    private void salvarCurso() {
+        String codigo = view.getCodigoCurso();
+        String nome = view.getNome();
+        String descricao = view.getDescricao();
+        boolean ativo = true; // sempre ativo
+
+        Curso curso = new Curso(codigo, nome, descricao, ativo);
+
+        // Aqui, salve no banco ou faça o que precisar com o curso
+        System.out.println("Curso salvo: " + curso);
+
+        view.fechar();
+    }
+
+    public void exibirTela() {
+        view.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new CursoSave().exibirTela();
+    }
 }

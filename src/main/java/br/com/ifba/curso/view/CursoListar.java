@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package br.com.ifba.curso.view;
-
 /**
  *
  * @author Bruno
@@ -26,21 +25,65 @@ public class CursoListar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        lblImagemPesquisar = new javax.swing.JLabel();
+        txtPesquisar = new javax.swing.JTextField();
+        btnAdicionar = new javax.swing.JButton();
+        btnHomescreen = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblTabela = new javax.swing.JTable();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblImagemPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/curso/images/lupa.png"))); // NOI18N
+        getContentPane().add(lblImagemPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        txtPesquisar.setText("             Pesquisar...");
+        txtPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPesquisarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 190, 50));
+
+        btnAdicionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/curso/images/adicionar.png"))); // NOI18N
+        getContentPane().add(btnAdicionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 160, 50));
+
+        btnHomescreen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/curso/images/home.png"))); // NOI18N
+        btnHomescreen.setText("Homescreen");
+        getContentPane().add(btnHomescreen, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 180, 50));
+
+        tblTabela.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "NOME", "QUANTIDADE", "DESCRIÇÃO", "FORNECEDOR", "REMOVER", "EDITAR"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblTabela);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 560, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPesquisarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +121,11 @@ public class CursoListar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdicionar;
+    private javax.swing.JButton btnHomescreen;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblImagemPesquisar;
+    private javax.swing.JTable tblTabela;
+    private javax.swing.JTextField txtPesquisar;
     // End of variables declaration//GEN-END:variables
 }

@@ -14,21 +14,24 @@ public class Curso {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-incremento no banco de dados 
     private Long id;
 
+    private String codigoCurso;  
+
     private String nome;
 
     private String descricao;
 
-    private double cargaHoraria;
+    private boolean ativo;  
 
     // Construtor vazio (requerido pelo Hibernate)
     public Curso() {
     }
 
-    // Construtor com parâmetros
-    public Curso(String nome, String descricao, double cargaHoraria) {
+    // Construtor com parâmetros (incluindo ativo)
+    public Curso(String codigoCurso, String nome, String descricao, boolean ativo) {
+        this.codigoCurso = codigoCurso;
         this.nome = nome;
         this.descricao = descricao;
-        this.cargaHoraria = cargaHoraria;
+        this.ativo = ativo;
     }
 
     // Getters e Setters
@@ -38,6 +41,14 @@ public class Curso {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getCodigoCurso() {
+        return codigoCurso;
+    }
+
+    public void setCodigoCurso(String codigoCurso) {
+        this.codigoCurso = codigoCurso;
     }
 
     public String getNome() {
@@ -56,12 +67,12 @@ public class Curso {
         this.descricao = descricao;
     }
 
-    public double getCargaHoraria() {
-        return cargaHoraria;
+    public boolean isAtivo() {
+        return ativo;
     }
 
-    public void setCargaHoraria(double cargaHoraria) {
-        this.cargaHoraria = cargaHoraria;
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
     }
 
     // Método para exibir informações do curso
@@ -69,9 +80,10 @@ public class Curso {
     public String toString() {
         return "Curso{" +
                "id=" + id +
+               ", codigoCurso='" + codigoCurso + '\'' +
                ", nome='" + nome + '\'' +
                ", descricao='" + descricao + '\'' +
-               ", cargaHoraria=" + cargaHoraria +
+               ", ativo=" + ativo +
                '}';
     }
 }
