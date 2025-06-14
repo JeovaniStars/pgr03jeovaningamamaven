@@ -4,6 +4,9 @@
  */
 package br.com.ifba.curso.view;
 import br.com.ifba.curso.view.CursoSaveView;
+import br.com.ifba.*;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,8 +19,41 @@ public class CursoListar extends javax.swing.JFrame {
      */
     public CursoListar() {
         initComponents();
+        configurarColunas();
     }
+    
+    private void excluirRegistro() {
+    int row = tblTabela.getSelectedRow();
+    if (row != -1) {
+        int confirm = JOptionPane.showConfirmDialog(this, "Deseja realmente excluir?", "Confirmação", JOptionPane.YES_NO_OPTION);
+        if (confirm == JOptionPane.YES_OPTION) {
+            // Excluir o registro logicamente ou do banco de dados
+            ((DefaultTableModel) tblTabela.getModel()).removeRow(row);
+        }
+    }
+}
 
+private void editarRegistro() {
+    int row = tblTabela.getSelectedRow();
+    if (row != -1) {
+        // Abrir tela de edição passando os dados da linha selecionada
+        CursoEditView editarTela = new CursoEditView();
+        editarTela.setVisible(true);
+    }
+}
+
+    
+    private void configurarColunas() {
+    // Renderizador para o botão de Excluir
+    tblTabela.getColumn("REMOVER").setCellRenderer(new ImageButtonRenderer("/br/com/ifba/curso/images/excluir.png"));
+
+    // Renderizador para o botão de Editar
+    tblTabela.getColumn("EDITAR").setCellRenderer(new ImageButtonRenderer("/br/com/ifba/curso/images/editar.png"));
+
+    // Configurar ação ao clicar nos botões
+    tblTabela.getColumn("REMOVER").setCellEditor(new ButtonEditor(evt -> excluirRegistro()));
+    tblTabela.getColumn("EDITAR").setCellEditor(new ButtonEditor(evt -> editarRegistro()));
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
